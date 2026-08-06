@@ -1,0 +1,60 @@
+@model IReadOnlyList<Dentist>
+
+@{
+    ViewData["Title"] = "Our Dentists";
+}
+
+<section class="page-hero" aria-labelledby="dentists-heading">
+    <div class="container py-5">
+        <span class="eyebrow">Experienced and compassionate</span>
+        <h1 id="dentists-heading" class="display-5 fw-bold mt-2">Meet Our Dentists</h1>
+        <p class="lead mb-0">Get to know the professionals dedicated to keeping your smile healthy.</p>
+    </div>
+</section>
+
+<section class="container py-5" aria-label="BrightSmile dentists">
+    @if (Model.Count == 0)
+    {
+        <div class="empty-state text-center">
+            <h2 class="h4">Dentist profiles are being updated</h2>
+            <p class="text-secondary mb-0">Please check back soon or contact the clinic for assistance.</p>
+        </div>
+    }
+    else
+    {
+        <div class="row g-4 justify-content-center">
+            @foreach (var dentist in Model)
+            {
+                <div class="col-md-6 col-xl-5">
+                    <article class="card dentist-card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex flex-column flex-sm-row gap-4 align-items-sm-center">
+                                @if (!string.IsNullOrWhiteSpace(dentist.ImageFileName))
+                                {
+                                    <img class="dentist-photo" src="~/images/dentists/@dentist.ImageFileName"
+                                         alt="Portrait of Dr. @dentist.FullName" />
+                                }
+                                else
+                                {
+                                    <div class="dentist-initials" aria-hidden="true">
+                                        @dentist.FirstName[0]@dentist.LastName[0]
+                                    </div>
+                                }
+                                <div>
+                                    <span class="badge specialty-badge mb-2">@dentist.Specialization</span>
+                                    <h2 class="h3 mb-1">Dr. @dentist.FullName</h2>
+                                    <p class="text-secondary mb-0">@dentist.YearsOfExperience years of experience</p>
+                                </div>
+                            </div>
+                            <hr class="my-4" />
+                            <div class="availability">
+                                <span class="fw-semibold">General availability</span>
+                                <p class="text-secondary mb-0 mt-1">@dentist.Availability</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            }
+        </div>
+    }
+</section>

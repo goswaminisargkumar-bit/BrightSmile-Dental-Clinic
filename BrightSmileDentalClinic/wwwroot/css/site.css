@@ -1,5 +1,16 @@
+:root {
+  --bs-primary: #087f8c;
+  --clinic-teal: #087f8c;
+  --clinic-teal-dark: #075c65;
+  --clinic-mint: #e8f7f6;
+  --clinic-navy: #16324f;
+  --clinic-sand: #f8faf9;
+}
+
 html {
   font-size: 14px;
+  position: relative;
+  min-height: 100%;
 }
 
 @media (min-width: 768px) {
@@ -8,24 +19,197 @@ html {
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: var(--clinic-navy);
+  background: var(--clinic-sand);
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+main {
+  flex: 1;
+}
+
+a {
+  color: var(--clinic-teal-dark);
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus,
+.nav-link:focus {
+  box-shadow: 0 0 0 0.2rem rgba(8, 127, 140, 0.25);
+}
+
+.navbar {
+  min-height: 76px;
+}
+
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--clinic-navy);
+}
+
+.brand-mark,
+.service-mark {
+  display: inline-grid;
+  place-items: center;
+  color: #fff;
+  background: var(--clinic-teal);
+  font-weight: 700;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 50% 50% 50% 15%;
+}
+
+.brand-subtitle {
+  color: #587084;
+  font-size: 0.9rem;
+}
+
+.nav-link {
+  color: var(--clinic-navy);
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding-inline: 0.8rem !important;
+}
+
+.nav-link:hover {
+  color: var(--clinic-teal-dark);
+  background: var(--clinic-mint);
+}
+
+.page-hero {
+  color: #fff;
+  background:
+    radial-gradient(circle at 85% 25%, rgba(255, 255, 255, 0.18), transparent 22rem),
+    linear-gradient(120deg, var(--clinic-navy), var(--clinic-teal));
+}
+
+.page-hero .lead {
+  max-width: 46rem;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #bcecea;
+}
+
+.service-card,
+.dentist-card {
+  border-radius: 1rem;
+  background: #fff;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.service-card:hover,
+.dentist-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2.5rem rgba(22, 50, 79, 0.12) !important;
+}
+
+.service-mark {
+  width: 48px;
+  height: 48px;
+  border-radius: 0.9rem;
+  font-size: 0.85rem;
+}
+
+.service-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5ecef;
+}
+
+.service-details dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #637887;
+}
+
+.service-details dd {
+  margin: 0.2rem 0 0;
+  font-weight: 700;
+  color: var(--clinic-navy);
+}
+
+.dentist-photo,
+.dentist-initials {
+  width: 104px;
+  height: 104px;
+  flex: 0 0 104px;
+  border-radius: 50%;
+}
+
+.dentist-photo {
+  object-fit: cover;
+}
+
+.dentist-initials {
+  display: grid;
+  place-items: center;
+  background: var(--clinic-mint);
+  color: var(--clinic-teal-dark);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.specialty-badge {
+  color: var(--clinic-teal-dark);
+  background: var(--clinic-mint);
+  font-weight: 600;
+}
+
+.empty-state {
+  max-width: 42rem;
+  margin-inline: auto;
+  padding: 3rem;
+  border: 1px dashed #9ab9bd;
+  border-radius: 1rem;
+  background: #fff;
+}
+
+.site-footer {
+  color: #d7e3e9;
+  background: var(--clinic-navy);
+  font-size: 0.9rem;
+}
+
+.form-floating > .form-control-plaintext::placeholder,
+.form-floating > .form-control::placeholder {
   color: var(--bs-secondary-color);
   text-align: end;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+.form-floating > .form-control-plaintext:focus::placeholder,
+.form-floating > .form-control:focus::placeholder {
   text-align: start;
+}
+
+@media (max-width: 575.98px) {
+  .brand-subtitle {
+    display: block;
+  }
+
+  .dentist-initials,
+  .dentist-photo {
+    width: 88px;
+    height: 88px;
+    flex-basis: 88px;
+  }
 }

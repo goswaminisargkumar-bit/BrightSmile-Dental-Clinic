@@ -1,0 +1,50 @@
+@model IReadOnlyList<Service>
+
+@{
+    ViewData["Title"] = "Dental Services";
+}
+
+<section class="page-hero" aria-labelledby="services-heading">
+    <div class="container py-5">
+        <span class="eyebrow">Care for every smile</span>
+        <h1 id="services-heading" class="display-5 fw-bold mt-2">Our Dental Services</h1>
+        <p class="lead mb-0">Comfortable, professional dental care designed around you and your family.</p>
+    </div>
+</section>
+
+<section class="container py-5" aria-label="Available dental services">
+    @if (Model.Count == 0)
+    {
+        <div class="empty-state text-center">
+            <h2 class="h4">Services are being updated</h2>
+            <p class="text-secondary mb-0">Please check back soon or contact the clinic for assistance.</p>
+        </div>
+    }
+    else
+    {
+        <div class="row g-4">
+            @foreach (var service in Model)
+            {
+                <div class="col-md-6 col-xl-4">
+                    <article class="card service-card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <div class="service-mark mb-3" aria-hidden="true">BS</div>
+                            <h2 class="h4 card-title">@service.ServiceName</h2>
+                            <p class="card-text text-secondary flex-grow-1">@service.Description</p>
+                            <dl class="service-details mb-0">
+                                <div>
+                                    <dt>Duration</dt>
+                                    <dd>@service.DurationMinutes minutes</dd>
+                                </div>
+                                <div>
+                                    <dt>Starting at</dt>
+                                    <dd>@service.Price.ToString("C")</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </article>
+                </div>
+            }
+        </div>
+    }
+</section>
