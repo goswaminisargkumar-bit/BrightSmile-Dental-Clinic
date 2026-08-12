@@ -1,14 +1,33 @@
 using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
+using BrightSmileDentalClinic.Data;
 using BrightSmileDentalClinic.Models;
+using BrightSmileDentalClinic.ViewModels;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BrightSmileDentalClinic.Controllers;
 
-public class HomeController : Controller
+public class HomeController(ApplicationDbContext context) : Controller
 {
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        var model = new HomePageViewModel
+        {
+            FeaturedServices = await context.Services
+                .AsNoTracking()
+                .Where(service => service.IsAvailable)
+                .OrderBy(service => service.ServiceName)
+                .Take(3)
+                .ToListAsync(),
+            FeaturedDentists = await context.Dentists
+                .AsNoTracking()
+                .OrderBy(dentist => dentist.LastName)
+                .ThenBy(dentist => dentist.FirstName)
+                .Take(2)
+                .ToListAsync()
+        };
+
+        return View(model);
     }
 
     public IActionResult Privacy()

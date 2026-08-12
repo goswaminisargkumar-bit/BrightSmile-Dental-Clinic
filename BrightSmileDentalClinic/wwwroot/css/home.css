@@ -1,0 +1,277 @@
+.home-hero {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(circle at 90% 20%, rgba(150, 232, 225, 0.28), transparent 28rem),
+    linear-gradient(125deg, #112d49 8%, var(--clinic-teal-dark) 65%, var(--clinic-teal));
+}
+
+.home-hero::after {
+  content: "";
+  position: absolute;
+  right: -8rem;
+  bottom: -14rem;
+  width: 30rem;
+  height: 30rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+}
+
+.home-title {
+  max-width: 760px;
+  font-size: clamp(2.7rem, 6vw, 5.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.home-lead {
+  max-width: 680px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.home-primary-action {
+  color: var(--clinic-navy);
+  font-weight: 700;
+}
+
+.hero-assurances {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.92rem;
+}
+
+.hero-assurances span {
+  color: #9be0da;
+  font-weight: 700;
+}
+
+.hero-card {
+  position: relative;
+  z-index: 1;
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 1.5rem 4rem rgba(4, 24, 42, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+.hero-smile {
+  display: grid;
+  place-items: center;
+  width: 88px;
+  height: 88px;
+  margin-bottom: 2rem;
+  border-radius: 50% 50% 50% 18%;
+  background: #fff;
+  transform: rotate(-8deg);
+}
+
+.hero-tooth {
+  color: var(--clinic-teal);
+  font-size: 2.5rem;
+  font-weight: 800;
+  transform: rotate(8deg);
+}
+
+.hero-card-kicker {
+  color: #b9efea;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hero-contact-link {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.hero-contact-link:hover {
+  color: #b9efea;
+}
+
+.home-stats {
+  color: #fff;
+  background: var(--clinic-navy);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1.5rem 0.75rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.stat-item:last-child {
+  border-right: 0;
+}
+
+.stat-item strong {
+  color: #a9e3df;
+  font-size: 1.05rem;
+}
+
+.stat-item span {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.82rem;
+}
+
+.home-section {
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+}
+
+.section-link {
+  color: var(--clinic-teal-dark);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.home-service-card,
+.home-dentist-card {
+  padding: 1.75rem;
+  border: 1px solid #e0eaec;
+  border-radius: 1.1rem;
+  background: #fff;
+  box-shadow: 0 0.5rem 1.5rem rgba(22, 50, 79, 0.06);
+}
+
+.home-service-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-number {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 1.4rem;
+  border-radius: 0.8rem;
+  color: var(--clinic-teal-dark);
+  background: var(--clinic-mint);
+  font-weight: 800;
+}
+
+.service-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e7edef;
+  color: #637887;
+}
+
+.service-meta strong {
+  color: var(--clinic-navy);
+}
+
+.care-section {
+  background: #edf7f6;
+}
+
+.care-point {
+  display: flex;
+  gap: 1rem;
+  height: 100%;
+  padding: 1.35rem;
+  border-radius: 1rem;
+  background: #fff;
+}
+
+.care-point > span {
+  color: var(--clinic-teal);
+  font-weight: 800;
+}
+
+.care-point p {
+  color: #637887;
+  font-size: 0.92rem;
+}
+
+.section-heading > p,
+.section-heading.text-center {
+  max-width: 660px;
+}
+
+.home-dentist-initials {
+  display: grid;
+  place-items: center;
+  width: 82px;
+  height: 82px;
+  flex: 0 0 82px;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(145deg, var(--clinic-teal), var(--clinic-navy));
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+
+.specialty-label {
+  color: var(--clinic-teal-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.btn-outline-clinic {
+  color: var(--clinic-teal-dark);
+  border-color: var(--clinic-teal);
+  font-weight: 700;
+}
+
+.btn-outline-clinic:hover {
+  color: #fff;
+  background: var(--clinic-teal);
+}
+
+.home-cta {
+  overflow: hidden;
+  color: #fff;
+  border-radius: 1.5rem;
+  background:
+    radial-gradient(circle at 10% 100%, rgba(255, 255, 255, 0.16), transparent 16rem),
+    linear-gradient(120deg, var(--clinic-teal-dark), var(--clinic-teal));
+}
+
+.home-cta .lead {
+  max-width: 720px;
+  margin-inline: auto;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+@media (max-width: 991.98px) {
+  .home-title {
+    max-width: 680px;
+  }
+
+  .hero-card {
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .stat-item:nth-child(2) {
+    border-right: 0;
+  }
+
+  .stat-item:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .home-section {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .home-dentist-card {
+    align-items: flex-start !important;
+    flex-direction: column;
+  }
+}

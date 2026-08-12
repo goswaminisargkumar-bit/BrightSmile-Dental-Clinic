@@ -1,8 +1,165 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@model BrightSmileDentalClinic.ViewModels.HomePageViewModel
+
+@{
+    ViewData["Title"] = "Family Dental Care";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="home-hero">
+    <div class="container py-5">
+        <div class="row align-items-center g-5 py-lg-4">
+            <div class="col-lg-7">
+                <span class="eyebrow">Comfortable care. Confident smiles.</span>
+                <h1 class="home-title mt-3">Modern dental care for every stage of life.</h1>
+                <p class="lead home-lead mt-4">
+                    BrightSmile combines compassionate professionals, personalized treatment, and a welcoming clinic
+                    experience to help your whole family smile with confidence.
+                </p>
+                <div class="d-flex flex-column flex-sm-row gap-3 mt-4">
+                    <a class="btn btn-light btn-lg home-primary-action" asp-controller="Appointments" asp-action="Create">
+                        Book an Appointment
+                    </a>
+                    <a class="btn btn-outline-light btn-lg" asp-controller="Services" asp-action="Index">
+                        Explore Services
+                    </a>
+                </div>
+                <ul class="hero-assurances list-unstyled d-flex flex-wrap gap-3 gap-md-4 mt-4 mb-0">
+                    <li><span aria-hidden="true">&#10003;</span> Friendly team</li>
+                    <li><span aria-hidden="true">&#10003;</span> Flexible scheduling</li>
+                    <li><span aria-hidden="true">&#10003;</span> Family-focused care</li>
+                </ul>
+            </div>
+            <div class="col-lg-5">
+                <div class="hero-card" aria-label="BrightSmile clinic welcome">
+                    <div class="hero-smile" aria-hidden="true">
+                        <span class="hero-tooth">B</span>
+                    </div>
+                    <p class="hero-card-kicker mb-2">New patients welcome</p>
+                    <h2 class="h3">Your healthiest smile starts here.</h2>
+                    <p class="mb-4">Request a visit online and our clinic team will contact you to confirm the appointment.</p>
+                    <a asp-controller="Contact" asp-action="Index" class="hero-contact-link">Questions? Contact our team <span aria-hidden="true">&rarr;</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="home-stats" aria-label="Clinic highlights">
+    <div class="container">
+        <div class="row g-0 text-center">
+            <div class="col-6 col-lg-3 stat-item"><strong>Patient-first</strong><span>Personalized care</span></div>
+            <div class="col-6 col-lg-3 stat-item"><strong>Modern</strong><span>Treatment approach</span></div>
+            <div class="col-6 col-lg-3 stat-item"><strong>Convenient</strong><span>Online requests</span></div>
+            <div class="col-6 col-lg-3 stat-item"><strong>Welcoming</strong><span>Family environment</span></div>
+        </div>
+    </div>
+</section>
+
+<section class="container py-5 home-section" aria-labelledby="featured-services-heading">
+    <div class="section-heading d-flex flex-column flex-md-row align-items-md-end justify-content-between gap-3 mb-4">
+        <div>
+            <span class="eyebrow text-clinic">Care made for you</span>
+            <h2 id="featured-services-heading" class="display-6 fw-bold mt-2 mb-0">Featured Services</h2>
+        </div>
+        <a asp-controller="Services" asp-action="Index" class="section-link">View all services <span aria-hidden="true">&rarr;</span></a>
+    </div>
+
+    @if (Model.FeaturedServices.Count == 0)
+    {
+        <div class="empty-state text-center">
+            <h3 class="h4">Services are being updated</h3>
+            <p class="text-secondary mb-0">Please contact the clinic for current treatment information.</p>
+        </div>
+    }
+    else
+    {
+        <div class="row g-4">
+            @for (var index = 0; index < Model.FeaturedServices.Count; index++)
+            {
+                var service = Model.FeaturedServices[index];
+                <div class="col-md-6 col-xl-4">
+                    <article class="home-service-card h-100">
+                        <span class="service-number" aria-hidden="true">0@(index + 1)</span>
+                        <h3 class="h4">@service.ServiceName</h3>
+                        <p class="text-secondary">@service.Description</p>
+                        <div class="service-meta mt-auto">
+                            <span>@service.DurationMinutes minutes</span>
+                            <strong>@service.Price.ToString("C")</strong>
+                        </div>
+                    </article>
+                </div>
+            }
+        </div>
+    }
+</section>
+
+<section class="care-section py-5">
+    <div class="container py-lg-4">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-5">
+                <span class="eyebrow text-clinic">The BrightSmile difference</span>
+                <h2 class="display-6 fw-bold mt-2">Dental visits designed around your comfort.</h2>
+                <p class="text-secondary mt-3 mb-0">
+                    We explain every step, listen to your concerns, and create a care plan that supports your individual goals.
+                </p>
+            </div>
+            <div class="col-lg-7">
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <div class="care-point"><span aria-hidden="true">01</span><div><h3 class="h5">Clear communication</h3><p class="mb-0">Understand your options before treatment begins.</p></div></div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="care-point"><span aria-hidden="true">02</span><div><h3 class="h5">Thoughtful care</h3><p class="mb-0">A welcoming experience for patients of all ages.</p></div></div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="care-point"><span aria-hidden="true">03</span><div><h3 class="h5">Professional team</h3><p class="mb-0">Experienced dentists focused on lasting oral health.</p></div></div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="care-point"><span aria-hidden="true">04</span><div><h3 class="h5">Easy requests</h3><p class="mb-0">Choose your preferred service, dentist, date, and time online.</p></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container py-5 home-section" aria-labelledby="featured-dentists-heading">
+    <div class="section-heading text-center mx-auto mb-4">
+        <span class="eyebrow text-clinic">Meet your care team</span>
+        <h2 id="featured-dentists-heading" class="display-6 fw-bold mt-2">Experienced Dentists Who Listen</h2>
+        <p class="text-secondary">Our dental professionals are committed to comfortable, respectful, and personalized care.</p>
+    </div>
+
+    @if (Model.FeaturedDentists.Count > 0)
+    {
+        <div class="row g-4 justify-content-center">
+            @foreach (var dentist in Model.FeaturedDentists)
+            {
+                <div class="col-md-6 col-lg-5">
+                    <article class="home-dentist-card h-100 d-flex gap-3 align-items-center">
+                        <div class="home-dentist-initials" aria-hidden="true">@dentist.FirstName[0]@dentist.LastName[0]</div>
+                        <div>
+                            <span class="specialty-label">@dentist.Specialization</span>
+                            <h3 class="h4 mt-1 mb-1">Dr. @dentist.FullName</h3>
+                            <p class="text-secondary mb-0">@dentist.YearsOfExperience years of experience</p>
+                        </div>
+                    </article>
+                </div>
+            }
+        </div>
+        <div class="text-center mt-4">
+            <a asp-controller="Dentists" asp-action="Index" class="btn btn-outline-clinic">Meet all dentists</a>
+        </div>
+    }
+</section>
+
+<section class="container pb-5">
+    <div class="home-cta text-center p-4 p-md-5">
+        <span class="eyebrow">Take the next step</span>
+        <h2 class="display-6 fw-bold mt-2">Ready to care for your smile?</h2>
+        <p class="lead">Send an appointment request today. Our team will review your preferred time and contact you.</p>
+        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-4">
+            <a asp-controller="Appointments" asp-action="Create" class="btn btn-light btn-lg">Request an Appointment</a>
+            <a asp-controller="Contact" asp-action="Index" class="btn btn-outline-light btn-lg">Contact the Clinic</a>
+        </div>
+    </div>
+</section>
