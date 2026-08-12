@@ -1,0 +1,10 @@
+@model Service
+<div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+<div class="row g-3">
+    <div class="col-12"><label asp-for="ServiceName" class="form-label"></label><input asp-for="ServiceName" class="form-control" /><span asp-validation-for="ServiceName" class="text-danger"></span></div>
+    <div class="col-12"><label asp-for="Description" class="form-label"></label><textarea asp-for="Description" class="form-control" rows="5"></textarea><span asp-validation-for="Description" class="text-danger"></span></div>
+    <div class="col-md-6"><label asp-for="DurationMinutes" class="form-label"></label><input asp-for="DurationMinutes" class="form-control" /><span asp-validation-for="DurationMinutes" class="text-danger"></span></div>
+    <div class="col-md-6"><label asp-for="Price" class="form-label"></label><div class="input-group"><span class="input-group-text">$</span><input asp-for="Price" class="form-control" /></div><span asp-validation-for="Price" class="text-danger"></span></div>
+    <div class="col-12"><label asp-for="ImageFileName" class="form-label"></label><input asp-for="ImageFileName" class="form-control" placeholder="Optional image filename" /><span asp-validation-for="ImageFileName" class="text-danger"></span></div>
+    <div class="col-12"><div class="form-check"><input asp-for="IsAvailable" class="form-check-input" /><label asp-for="IsAvailable" class="form-check-label"></label></div></div>
+</div>

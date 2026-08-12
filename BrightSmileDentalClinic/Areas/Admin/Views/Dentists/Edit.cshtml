@@ -1,0 +1,4 @@
+@model Dentist
+@{ ViewData["Title"] = "Edit Dentist"; }
+<div class="container py-4 py-lg-5"><div class="admin-form-card"><div class="admin-form-heading"><span class="admin-eyebrow">Clinic team</span><h1 class="h2 mt-1">Edit Dr. @Model.FullName</h1></div><form asp-action="Edit" asp-route-id="@Model.DentistId" method="post"><input asp-for="DentistId" type="hidden" /><partial name="_Form" model="Model" /><div class="admin-form-actions"><button class="btn btn-admin" type="submit">Save changes</button><a asp-action="Index" class="btn btn-outline-secondary">Cancel</a></div></form></div></div>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

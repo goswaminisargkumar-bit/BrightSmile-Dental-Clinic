@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - BrightSmile Admin</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/admin-crud.css" asp-append-version="true" />
 </head>
 <body class="admin-body">
     <header class="admin-header">
@@ -24,8 +25,8 @@
                     {
                         <ul class="navbar-nav me-auto ms-lg-4">
                             <li class="nav-item"><a class="nav-link" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Dashboard</a></li>
-                            <li class="nav-item"><span class="nav-link disabled">Dentists</span></li>
-                            <li class="nav-item"><span class="nav-link disabled">Services</span></li>
+                            <li class="nav-item"><a class="nav-link" asp-area="Admin" asp-controller="Dentists" asp-action="Index">Dentists</a></li>
+                            <li class="nav-item"><a class="nav-link" asp-area="Admin" asp-controller="Services" asp-action="Index">Services</a></li>
                             <li class="nav-item"><span class="nav-link disabled">Appointments</span></li>
                             <li class="nav-item"><span class="nav-link disabled">Patients</span></li>
                             <li class="nav-item"><span class="nav-link disabled">Messages</span></li>
