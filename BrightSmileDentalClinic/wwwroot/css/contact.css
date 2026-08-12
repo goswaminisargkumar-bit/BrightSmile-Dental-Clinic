@@ -1,0 +1,44 @@
+.contact-form,
+.contact-details {
+  border-radius: 1rem;
+  background: #fff;
+}
+
+.contact-list div,
+.hours-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid #e8eef0;
+}
+
+.contact-list div:last-child,
+.hours-list div:last-child {
+  border-bottom: 0;
+}
+
+.contact-list dt,
+.hours-list dt {
+  color: #637887;
+  font-weight: 600;
+}
+
+.contact-list dd,
+.hours-list dd {
+  margin: 0;
+  text-align: right;
+}
+
+@media (max-width: 400px) {
+  .contact-list div,
+  .hours-list div {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .contact-list dd,
+  .hours-list dd {
+    text-align: left;
+  }
+}
