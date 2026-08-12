@@ -1,0 +1,8 @@
+@model IReadOnlyList<Appointment>
+@{ ViewData["Title"] = "Manage Appointments"; var selected = ViewData["SelectedStatus"] as AppointmentStatus?; }
+<div class="container-fluid px-3 px-lg-4 py-4 py-lg-5">
+ <div class="admin-page-heading"><div><span class="admin-eyebrow">Patient requests</span><h1 class="display-6 fw-bold mt-1">Manage Appointments</h1></div></div>
+ <partial name="_AdminAlerts" />
+ <div class="admin-filter-bar"><a asp-action="Index" class="btn @(selected is null ? "btn-admin" : "btn-outline-secondary")">All</a>@foreach(var status in Enum.GetValues<AppointmentStatus>()){<a asp-action="Index" asp-route-status="@status" class="btn @(selected == status ? "btn-admin" : "btn-outline-secondary")">@status</a>}</div>
+ <div class="admin-table-card">@if(Model.Count==0){<div class="admin-empty"><h2 class="h4">No appointment requests found</h2><p>Requests will appear here after patients submit the booking form.</p></div>}else{<div class="table-responsive"><table class="table admin-table align-middle mb-0"><thead><tr><th>Date and time</th><th>Patient</th><th>Dentist</th><th>Service</th><th>Status</th><th class="text-end">Action</th></tr></thead><tbody>@foreach(var item in Model){<tr><td><strong>@item.AppointmentDate.ToString("MMM d, yyyy")</strong><small>@DateTime.Today.Add(item.AppointmentTime).ToString("h:mm tt")</small></td><td>@item.Patient?.FullName</td><td>Dr. @item.Dentist?.FullName</td><td>@item.Service?.ServiceName</td><td><span class="status-badge status-@item.Status.ToString().ToLowerInvariant()">@item.Status</span></td><td class="text-end"><a asp-action="Details" asp-route-id="@item.AppointmentId" class="btn btn-sm btn-outline-primary">View</a></td></tr>}</tbody></table></div>}</div>
+</div>

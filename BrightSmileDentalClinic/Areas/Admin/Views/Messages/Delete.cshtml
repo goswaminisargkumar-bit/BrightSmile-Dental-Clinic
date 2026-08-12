@@ -1,0 +1,3 @@
+@model ContactMessage
+@{ ViewData["Title"] = "Delete Message"; }
+<div class="container py-4 py-lg-5"><div class="admin-delete-card"><span class="admin-eyebrow">Confirm deletion</span><h1 class="h2 mt-1">Delete this message?</h1><p>This permanently removes the message from @Model.Name.</p><dl class="admin-summary"><div><dt>Subject</dt><dd>@Model.Subject</dd></div><div><dt>Email</dt><dd>@Model.Email</dd></div><div><dt>Submitted</dt><dd>@Model.SubmittedDate.ToLocalTime().ToString("MMM d, yyyy h:mm tt")</dd></div></dl><form asp-action="Delete" asp-route-id="@Model.ContactMessageId" method="post"><button class="btn btn-danger" type="submit">Delete message</button> <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a></form></div></div>
