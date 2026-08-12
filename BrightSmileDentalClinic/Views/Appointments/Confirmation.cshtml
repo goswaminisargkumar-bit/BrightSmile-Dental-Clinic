@@ -1,0 +1,27 @@
+@model BrightSmileDentalClinic.ViewModels.AppointmentConfirmationViewModel
+
+@{
+    ViewData["Title"] = "Request Received";
+}
+
+<section class="container py-5">
+    <div class="confirmation-card card border-0 shadow-sm mx-auto">
+        <div class="card-body p-4 p-md-5 text-center">
+            <div class="confirmation-mark mx-auto mb-4" aria-hidden="true">&#10003;</div>
+            <span class="eyebrow text-clinic">Request #@Model.AppointmentId</span>
+            <h1 class="display-6 fw-bold mt-2">Thank you, @Model.PatientName!</h1>
+            <p class="lead text-secondary">Your appointment request has been received and is currently pending review.</p>
+
+            <dl class="confirmation-details text-start my-4">
+                <div><dt>Service</dt><dd>@Model.ServiceName</dd></div>
+                <div><dt>Dentist</dt><dd>Dr. @Model.DentistName</dd></div>
+                <div><dt>Preferred date</dt><dd>@Model.AppointmentDate.ToString("dddd, MMMM d, yyyy")</dd></div>
+                <div><dt>Preferred time</dt><dd>@DateTime.Today.Add(Model.AppointmentTime).ToString("h:mm tt")</dd></div>
+                <div><dt>Status</dt><dd><span class="badge text-bg-warning">Pending</span></dd></div>
+            </dl>
+
+            <p class="text-secondary">Clinic staff will contact you after reviewing your request. Please keep the request number for reference.</p>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-clinic">Return to Home</a>
+        </div>
+    </div>
+</section>

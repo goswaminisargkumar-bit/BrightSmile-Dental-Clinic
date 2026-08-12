@@ -8,6 +8,7 @@
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/appointment.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/BrightSmileDentalClinic.styles.css" asp-append-version="true" />
 </head>
 <body>
@@ -24,14 +25,11 @@
                 </button>
                 <div id="mainNavigation" class="navbar-collapse collapse justify-content-end">
                     <ul class="navbar-nav align-items-md-center gap-md-2">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Services" asp-action="Index">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Dentists" asp-action="Index">Dentists</a>
+                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Services" asp-action="Index">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Dentists" asp-action="Index">Dentists</a></li>
+                        <li class="nav-item ms-md-2">
+                            <a class="btn btn-clinic" asp-area="" asp-controller="Appointments" asp-action="Create">Book Appointment</a>
                         </li>
                     </ul>
                 </div>
@@ -39,9 +37,7 @@
         </nav>
     </header>
 
-    <main role="main">
-        @RenderBody()
-    </main>
+    <main role="main">@RenderBody()</main>
 
     <footer class="site-footer mt-auto">
         <div class="container py-4 d-flex flex-column flex-md-row justify-content-between gap-2">

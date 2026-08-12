@@ -1,0 +1,109 @@
+
+.btn-clinic {
+  color: #fff;
+  background: var(--clinic-teal);
+  border-color: var(--clinic-teal);
+  font-weight: 600;
+}
+
+.btn-clinic:hover,
+.btn-clinic:focus {
+  color: #fff;
+  background: var(--clinic-teal-dark);
+  border-color: var(--clinic-teal-dark);
+}
+
+.booking-form,
+.booking-help,
+.confirmation-card {
+  border-radius: 1rem;
+  background: #fff;
+}
+
+.booking-help {
+  position: sticky;
+  top: 1.5rem;
+}
+
+.required-label::after {
+  content: " *";
+  color: #b42318;
+}
+
+.form-control,
+.form-select {
+  min-height: 46px;
+  border-color: #aebfc8;
+}
+
+textarea.form-control {
+  min-height: 110px;
+}
+
+.field-validation-error {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.875rem;
+}
+
+.validation-summary-valid {
+  display: none;
+}
+
+.confirmation-card {
+  max-width: 720px;
+}
+
+.confirmation-mark {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--clinic-teal);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.text-clinic {
+  color: var(--clinic-teal-dark);
+}
+
+.confirmation-details {
+  overflow: hidden;
+  border: 1px solid #dce6e9;
+  border-radius: 0.8rem;
+}
+
+.confirmation-details div {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.8fr) 1.5fr;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid #e8eef0;
+}
+
+.confirmation-details div:last-child {
+  border-bottom: 0;
+}
+
+.confirmation-details dt,
+.confirmation-details dd {
+  margin: 0;
+}
+
+.confirmation-details dt {
+  color: #637887;
+}
+
+.confirmation-details dd {
+  font-weight: 600;
+}
+
+@media (max-width: 575.98px) {
+  .confirmation-details div {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+}
