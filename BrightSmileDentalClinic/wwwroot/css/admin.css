@@ -17,6 +17,23 @@ body {
   background: var(--admin-bg);
 }
 
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 2000;
+  padding: 0.65rem 1rem;
+  color: #102c46;
+  background: #fff;
+  border-radius: 0.4rem;
+  transform: translateY(-180%);
+}
+
+.skip-link:focus {
+  color: #102c46;
+  transform: translateY(0);
+}
+
 .admin-header {
   background: var(--admin-navy);
 }

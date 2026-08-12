@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="~/BrightSmileDentalClinic.styles.css" asp-append-version="true" />
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header>
         <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom" aria-label="Main navigation">
             <div class="container">
@@ -40,7 +41,7 @@
         </nav>
     </header>
 
-    <main role="main">@RenderBody()</main>
+    <main id="main-content" role="main" tabindex="-1">@RenderBody()</main>
 
     <footer class="site-footer mt-auto">
         <div class="container py-4 d-flex flex-column flex-md-row justify-content-between gap-2">

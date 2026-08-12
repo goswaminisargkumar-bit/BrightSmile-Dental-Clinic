@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="~/css/admin-operations.css" asp-append-version="true" />
 </head>
 <body class="admin-body">
+    <a class="skip-link" href="#admin-main-content">Skip to main content</a>
     <header class="admin-header">
         <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Admin navigation">
             <div class="container-fluid px-3 px-lg-4">
@@ -50,7 +51,7 @@
         </nav>
     </header>
 
-    <main class="admin-main">
+    <main id="admin-main-content" class="admin-main" tabindex="-1">
         @RenderBody()
     </main>
 

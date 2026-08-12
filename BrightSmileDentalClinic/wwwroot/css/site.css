@@ -27,6 +27,23 @@ body {
   background: var(--clinic-sand);
 }
 
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 2000;
+  padding: 0.65rem 1rem;
+  color: #fff;
+  background: #102c46;
+  border-radius: 0.4rem;
+  transform: translateY(-180%);
+}
+
+.skip-link:focus {
+  color: #fff;
+  transform: translateY(0);
+}
+
 main {
   flex: 1;
 }
