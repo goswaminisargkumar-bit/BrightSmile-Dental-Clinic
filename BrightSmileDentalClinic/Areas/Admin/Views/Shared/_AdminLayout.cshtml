@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BrightSmile Admin</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+</head>
+<body class="admin-body">
+    <header class="admin-header">
+        <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Admin navigation">
+            <div class="container-fluid px-3 px-lg-4">
+                <a class="navbar-brand d-flex align-items-center gap-2" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
+                    <span class="admin-brand-mark" aria-hidden="true">B</span>
+                    <span><strong>BrightSmile</strong> Admin</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavigation"
+                        aria-controls="adminNavigation" aria-expanded="false" aria-label="Toggle admin navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="adminNavigation" class="collapse navbar-collapse">
+                    @if (Context.Session.GetInt32(AdminSession.AdminId).HasValue)
+                    {
+                        <ul class="navbar-nav me-auto ms-lg-4">
+                            <li class="nav-item"><a class="nav-link" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Dashboard</a></li>
+                            <li class="nav-item"><span class="nav-link disabled">Dentists</span></li>
+                            <li class="nav-item"><span class="nav-link disabled">Services</span></li>
+                            <li class="nav-item"><span class="nav-link disabled">Appointments</span></li>
+                            <li class="nav-item"><span class="nav-link disabled">Patients</span></li>
+                            <li class="nav-item"><span class="nav-link disabled">Messages</span></li>
+                        </ul>
+                        <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
+                            <span class="admin-user">@Context.Session.GetString(AdminSession.AdminName)</span>
+                            <form asp-area="Admin" asp-controller="Account" asp-action="Logout" method="post">
+                                <button type="submit" class="btn btn-outline-light btn-sm">Log out</button>
+                            </form>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="ms-auto mt-3 mt-lg-0">
+                            <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-outline-light btn-sm">Return to website</a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="admin-main">
+        @RenderBody()
+    </main>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

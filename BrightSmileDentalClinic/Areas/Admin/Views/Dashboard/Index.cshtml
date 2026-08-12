@@ -1,0 +1,58 @@
+@model AdminDashboardViewModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container-fluid px-3 px-lg-4 py-4 py-lg-5">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-4">
+        <div>
+            <span class="admin-eyebrow">Clinic overview</span>
+            <h1 class="display-6 fw-bold mt-1 mb-0">Dashboard</h1>
+        </div>
+        <span class="text-secondary">Welcome, @Context.Session.GetString(AdminSession.AdminName)</span>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-sm-6 col-xl-3">
+            <article class="admin-stat-card"><span>Dentists</span><strong>@Model.DentistCount</strong><small>Clinic profiles</small></article>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <article class="admin-stat-card"><span>Services</span><strong>@Model.ServiceCount</strong><small>Dental treatments</small></article>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <article class="admin-stat-card"><span>Patients</span><strong>@Model.PatientCount</strong><small>Patient records</small></article>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <article class="admin-stat-card accent"><span>Pending requests</span><strong>@Model.PendingAppointmentCount</strong><small>Need review</small></article>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-7">
+            <section class="admin-panel h-100">
+                <div class="admin-panel-header"><h2 class="h4 mb-0">Appointment status</h2></div>
+                <div class="status-grid">
+                    <div><span class="status-dot pending"></span><strong>@Model.PendingAppointmentCount</strong><small>Pending</small></div>
+                    <div><span class="status-dot approved"></span><strong>@Model.ApprovedAppointmentCount</strong><small>Approved</small></div>
+                    <div><span class="status-dot cancelled"></span><strong>@Model.CancelledAppointmentCount</strong><small>Cancelled</small></div>
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-5">
+            <section class="admin-panel h-100">
+                <div class="admin-panel-header"><h2 class="h4 mb-0">Clinic inbox</h2></div>
+                <div class="inbox-summary">
+                    <strong>@Model.ContactMessageCount</strong>
+                    <span>contact messages stored</span>
+                    <p class="text-secondary mb-0">Message management will be available in the next admin phase.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <section class="admin-next mt-4">
+        <h2 class="h5">Admin management tools</h2>
+        <p class="mb-0">Dentist, service, appointment, patient, and message management pages are the next implementation phase.</p>
+    </section>
+</div>
