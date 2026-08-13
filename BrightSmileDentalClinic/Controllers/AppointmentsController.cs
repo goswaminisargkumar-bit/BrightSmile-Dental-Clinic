@@ -51,6 +51,7 @@ public class AppointmentsController(ApplicationDbContext context) : Controller
             return View(model);
         }
 
+        // A serializable transaction keeps two simultaneous requests from reserving the same dentist slot.
         await using var transaction = await context.Database.BeginTransactionAsync(IsolationLevel.Serializable);
 
         var date = model.AppointmentDate!.Value.Date;
@@ -73,6 +74,7 @@ public class AppointmentsController(ApplicationDbContext context) : Controller
         }
 
         var normalizedEmail = model.Email.Trim().ToLowerInvariant();
+        // Reuse a patient record by normalized email so repeat visitors keep one appointment history.
         var patient = await context.Patients.FirstOrDefaultAsync(existing =>
             existing.Email.ToLower() == normalizedEmail);
 
@@ -105,6 +107,7 @@ public class AppointmentsController(ApplicationDbContext context) : Controller
         await context.SaveChangesAsync();
         await transaction.CommitAsync();
 
+        // TempData carries confirmation details across the post-redirect-get flow without resubmitting the form.
         TempData["AppointmentId"] = appointment.AppointmentId;
         TempData["PatientName"] = patient.FullName;
         TempData["DentistName"] = dentist!.FullName;

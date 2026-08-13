@@ -62,6 +62,7 @@ public class AppointmentsController(ApplicationDbContext context) : Controller
             return RedirectToAction(nameof(Details), new { id });
         }
 
+        // Recheck the slot at approval time because another pending request may target the same dentist.
         var conflictingApproval = await context.Appointments.AnyAsync(existing =>
             existing.AppointmentId != id
             && existing.DentistId == appointment.DentistId
